@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="算法导读本期算法讲解思路：白话算法-&amp;gt;算法思路-&amp;gt;实例：八皇后问题-&amp;gt;实例：01背包问题-&amp;gt;算法教你玩数独 白话算法回溯法（back tracking） （探索与回溯法）是一种选优搜索法，又称为试探法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为“">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="www.cauchy.xyz/2019/10/11/hello-world/index.html">
+<meta property="og:title" content="回溯算法">
+<meta property="og:url" content="www.cauchy.xyz/2019/10/19/test/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="算法导读本期算法讲解思路：白话算法-&amp;gt;算法思路-&amp;gt;实例：八皇后问题-&amp;gt;实例：01背包问题-&amp;gt;算法教你玩数独 白话算法回溯法（back tracking） （探索与回溯法）是一种选优搜索法，又称为试探法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为“">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-11T14:59:40.693Z">
+<meta property="og:updated_time" content="2019-10-19T03:16:11.867Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="回溯算法">
+<meta name="twitter:description" content="算法导读本期算法讲解思路：白话算法-&amp;gt;算法思路-&amp;gt;实例：八皇后问题-&amp;gt;实例：01背包问题-&amp;gt;算法教你玩数独 白话算法回溯法（back tracking） （探索与回溯法）是一种选优搜索法，又称为试探法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为“">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="www.cauchy.xyz/2019/10/11/hello-world/">
+  <link rel="canonical" href="www.cauchy.xyz/2019/10/19/test/">
 
 
 
 
 
-  <title>Hello World | Hexo</title>
+  <title>回溯算法 | Hexo</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="www.cauchy.xyz/2019/10/11/hello-world/">
+    <link itemprop="mainEntityOfPage" href="www.cauchy.xyz/2019/10/19/test/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">回溯算法</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-11T22:59:40+08:00">
-                2019-10-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-19T10:59:41+08:00">
+                2019-10-19
               </time>
             
 
@@ -299,20 +299,23 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <h3 id="算法导读"><a href="#算法导读" class="headerlink" title="算法导读"></a>算法导读</h3><p>本期算法讲解思路：<br>白话算法-&gt;算法思路-&gt;实例：八皇后问题-&gt;实例：01背包问题-&gt;算法教你玩数独</p>
+<h3 id="白话算法"><a href="#白话算法" class="headerlink" title="白话算法"></a>白话算法</h3><p><em>回溯法（back tracking）</em> （探索与回溯法）是一种选优搜索法，又称为试探法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为“回溯点”。</p>
+<blockquote>
+<p>白话：回溯法可以理解为通过选择不同的岔路口寻找目的地，一个岔路口一个岔路口的去尝试找到目的地。如果走错了路，继续返回来找到岔路口的另一条路，直到找到目的地。</p>
+</blockquote>
+<h3 id="实例一：八皇后问题"><a href="#实例一：八皇后问题" class="headerlink" title="实例一：八皇后问题"></a>实例一：八皇后问题</h3><p>八皇后问题是一个古老而著名的问题，是回溯算法的典型例题。该问题是十九世纪著名的数学家高斯1850年提出：在8X8格的国际象棋上摆放八个皇后<em>（棋子）</em>，使其不能互相攻击，即任意两个皇后都不能处于同一行、同一列或同一斜线上。</p>
+<blockquote>
+<p>小白面试经：理解如何解决这个问题，回溯法的精髓已经get。如果只是想了解算法面试知识，知道解决这个问题就能完成你的算法积累了。<em>想快速掌握算法，可以直接查看解题思路的四个步骤。</em></p>
+</blockquote>
+<h3 id="八皇后问题解题思路："><a href="#八皇后问题解题思路：" class="headerlink" title="八皇后问题解题思路："></a>八皇后问题解题思路：</h3><blockquote>
+<p>问题简化：下面我们将八皇后问题转化为四皇后问题，并用回溯法来找到它的解<br><em>目的：</em>在4x4棋盘上，使得4个皇后不能在同行同列以及同斜线上。</p>
+</blockquote>
+<h3 id="代码实现八皇后问题"><a href="#代码实现八皇后问题" class="headerlink" title="代码实现八皇后问题"></a>代码实现八皇后问题</h3><p>我们将算法也设置成两步，<br><em>第一步</em> 我们要判断每次输入的皇后是否在同一行同一列，或者同一斜线上。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">bool is_ok(int row)&#123;            //判断设置的皇后是否在同一行，同一列，或者同一斜线上</span><br><span class="line">    for (int j=0;j&lt;row;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        if (queen[row]==queen[j]||row-queen[row]==j-queen[j]||row+queen[row]==j+queen[j])</span><br><span class="line">            return false;       </span><br><span class="line">    &#125;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+<p><em>第二步</em>我们用十行代码来进入我们核心算法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void back_tracking(int row=0)    //算法函数，从第0行开始遍历</span><br><span class="line">&#123;</span><br><span class="line">    if (row==n)</span><br><span class="line">        t ++;               //判断若遍历完成，就进行计数     </span><br><span class="line">        for (int col=0;col&lt;n;col++)     //遍历棋盘每一列</span><br><span class="line">        &#123;</span><br><span class="line">            queen[row] = col;           //将皇后的位置记录在数组</span><br><span class="line">            if (is_ok(row))             //判断皇后的位置是否有冲突</span><br><span class="line">                back_tracking(row+1);   //递归，计算下一个皇后的位置</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -332,6 +335,22 @@
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/19/test2/" rel="prev" title="test2">
+                test2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -405,7 +424,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -442,7 +461,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法导读"><span class="nav-number">1.</span> <span class="nav-text">算法导读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#白话算法"><span class="nav-number">2.</span> <span class="nav-text">白话算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例一：八皇后问题"><span class="nav-number">3.</span> <span class="nav-text">实例一：八皇后问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八皇后问题解题思路："><span class="nav-number">4.</span> <span class="nav-text">八皇后问题解题思路：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现八皇后问题"><span class="nav-number">5.</span> <span class="nav-text">代码实现八皇后问题</span></a></li></ol></div>
             
 
           </div>
