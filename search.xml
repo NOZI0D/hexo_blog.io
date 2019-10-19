@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>test2</title>
+    <url>/2019/10/19/test2/</url>
+    <content><![CDATA[<h3 id="基本要素"><a href="#基本要素" class="headerlink" title="基本要素"></a>基本要素</h3><p><strong>贪心选择</strong><br>贪心选择是指所求问题的整体最优解可以通过一系列局部最优的选择，即贪心选择来达到。这是贪心算法可行的第一个基本要素，也是贪心算法与动态规划算法的主要区别。贪心选择是采用从顶向下、以迭代的方法做出相继选择，每做一次贪心选择就将所求问题简化为一个规模更小的子问题。对于一个具体问题，要确定它是否具有贪心选择的性质，我们必须证明每一步所作的贪心选择最终能得到问题的最优解。通常可以首先证明问题的一个整体最优解，是从贪心选择开始的，而且作了贪心选择后，原问题简化为一个规模更小的类似子问题。然后，用数学归纳法证明，通过每一步贪心选择，最终可得到问题的一个整体最优解。<br><strong>最优子结构</strong><br>当一个问题的最优解包含其子问题的最优解时，称此问题具有最优子结构性质。运用贪心策略在每一次转化时都取得了最优解。问题的最优子结构性质是该问题可用贪心算法或动态规划算法求解的关键特征。贪心算法的每一次操作都对结果产生直接影响，而动态规划则不是。贪心算法对每个子问题的解决方案都做出选择，不能回退；动态规划则会根据以前的选择结果对当前进行选择，有回退功能。动态规划主要运用于二维或三维问题，而贪心一般是一维问题。</p>
+<h3 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h3><p><strong>思想</strong><br>贪心算法的基本思路是从问题的某一个初始解出发一步一步地进行，根据某个优化测度，每一步都要确保能获得局部最优解。每一步只考虑一个数据，他的选取应该满足局部优化的条件。若下一个数据和部分最优解连在一起不再是可行解时，就不把该数据添加到部分解中，直到把所有数据枚举完，或者不能再添加算法停止。<br><strong>过程</strong></p>
+<ol>
+<li>建立数学模型来描述问题；</li>
+<li>把求解的问题分成若干个子问题；</li>
+<li>对每一子问题求解，得到子问题的局部最优解；</li>
+<li>把子问题的解局部最优解合成原来解问题的一个解。</li>
+</ol>
+<h3 id="算法特性"><a href="#算法特性" class="headerlink" title="算法特性"></a>算法特性</h3><ul>
+<li>贪婪算法可解决的问题通常大部分都有如下的特性：<br>随着算法的进行，将积累起其它两个集合：一个包含已经被考虑过并被选出的候选对象，另一个包含已经被考虑过但被丢弃的候选对象。</li>
+<li>有一个函数来检查一个候选对象的集合是否提供了问题的解答。该函数不考虑此时的解决方法是否最优。</li>
+<li>还有一个函数检查是否一个候选对象的集合是可行的，也即是否可能往该集合上添加更多的候选对象以获得一个解。和上一个函数一样，此时不考虑解决方法的最优性。</li>
+<li>选择函数可以指出哪一个剩余的候选对象最有希望构成问题的解。</li>
+<li>最后，目标函数给出解的值。</li>
+<li>为了解决问题，需要寻找一个构成解的候选对象集合，它可以优化目标函数，贪婪算法一步一步的进行。起初，算法选出的候选对象的集合为空。接下来的每一步中，根据选择函数，算法从剩余候选对象中选出最有希望构成解的对象。如果集合中加上该对象后不可行，那么该对象就被丢弃并不再考虑；否则就加到集合里。每一次都扩充集合，并检查该集合是否构成解。如果贪婪算法正确工作，那么找到的第一个解通常是最优的。</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>test1</title>
+    <url>/2019/09/19/test/</url>
+    <content><![CDATA[<h3 id="算法导读"><a href="#算法导读" class="headerlink" title="算法导读"></a>算法导读</h3><p>本期算法讲解思路：<br>白话算法-&gt;算法思路-&gt;实例：八皇后问题-&gt;实例：01背包问题-&gt;算法教你玩数独</p>
+<h3 id="白话算法"><a href="#白话算法" class="headerlink" title="白话算法"></a>白话算法</h3><p><em>回溯法（back tracking）</em> （探索与回溯法）是一种选优搜索法，又称为试探法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为“回溯点”。</p>
+<blockquote>
+<p>白话：回溯法可以理解为通过选择不同的岔路口寻找目的地，一个岔路口一个岔路口的去尝试找到目的地。如果走错了路，继续返回来找到岔路口的另一条路，直到找到目的地。</p>
+</blockquote>
+<h3 id="实例一：八皇后问题"><a href="#实例一：八皇后问题" class="headerlink" title="实例一：八皇后问题"></a>实例一：八皇后问题</h3><p>八皇后问题是一个古老而著名的问题，是回溯算法的典型例题。该问题是十九世纪著名的数学家高斯1850年提出：在8X8格的国际象棋上摆放八个皇后<em>（棋子）</em>，使其不能互相攻击，即任意两个皇后都不能处于同一行、同一列或同一斜线上。</p>
+<blockquote>
+<p>小白面试经：理解如何解决这个问题，回溯法的精髓已经get。如果只是想了解算法面试知识，知道解决这个问题就能完成你的算法积累了。<em>想快速掌握算法，可以直接查看解题思路的四个步骤。</em></p>
+</blockquote>
+<h3 id="八皇后问题解题思路："><a href="#八皇后问题解题思路：" class="headerlink" title="八皇后问题解题思路："></a>八皇后问题解题思路：</h3><blockquote>
+<p>问题简化：下面我们将八皇后问题转化为四皇后问题，并用回溯法来找到它的解<br><em>目的：</em>在4x4棋盘上，使得4个皇后不能在同行同列以及同斜线上。</p>
+</blockquote>
+<h3 id="代码实现八皇后问题"><a href="#代码实现八皇后问题" class="headerlink" title="代码实现八皇后问题"></a>代码实现八皇后问题</h3><p>我们将算法也设置成两步，<br><em>第一步</em> 我们要判断每次输入的皇后是否在同一行同一列，或者同一斜线上。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bool is_ok(int row)&#123;            //判断设置的皇后是否在同一行，同一列，或者同一斜线上</span><br><span class="line">    for (int j=0;j&lt;row;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        if (queen[row]==queen[j]||row-queen[row]==j-queen[j]||row+queen[row]==j+queen[j])</span><br><span class="line">            return false;       </span><br><span class="line">    &#125;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>第二步</em>我们用十行代码来进入我们核心算法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">void back_tracking(int row=0)    //算法函数，从第0行开始遍历</span><br><span class="line">&#123;</span><br><span class="line">    if (row==n)</span><br><span class="line">        t ++;               //判断若遍历完成，就进行计数     </span><br><span class="line">        for (int col=0;col&lt;n;col++)     //遍历棋盘每一列</span><br><span class="line">        &#123;</span><br><span class="line">            queen[row] = col;           //将皇后的位置记录在数组</span><br><span class="line">            if (is_ok(row))             //判断皇后的位置是否有冲突</span><br><span class="line">                back_tracking(row+1);   //递归，计算下一个皇后的位置</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+</search>
