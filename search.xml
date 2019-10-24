@@ -1,45 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>test2</title>
-    <url>/2019/10/19/test2/</url>
-    <content><![CDATA[<h3 id="基本要素"><a href="#基本要素" class="headerlink" title="基本要素"></a>基本要素</h3><p><strong>贪心选择</strong><br>贪心选择是指所求问题的整体最优解可以通过一系列局部最优的选择，即贪心选择来达到。这是贪心算法可行的第一个基本要素，也是贪心算法与动态规划算法的主要区别。贪心选择是采用从顶向下、以迭代的方法做出相继选择，每做一次贪心选择就将所求问题简化为一个规模更小的子问题。对于一个具体问题，要确定它是否具有贪心选择的性质，我们必须证明每一步所作的贪心选择最终能得到问题的最优解。通常可以首先证明问题的一个整体最优解，是从贪心选择开始的，而且作了贪心选择后，原问题简化为一个规模更小的类似子问题。然后，用数学归纳法证明，通过每一步贪心选择，最终可得到问题的一个整体最优解。<br><strong>最优子结构</strong><br>当一个问题的最优解包含其子问题的最优解时，称此问题具有最优子结构性质。运用贪心策略在每一次转化时都取得了最优解。问题的最优子结构性质是该问题可用贪心算法或动态规划算法求解的关键特征。贪心算法的每一次操作都对结果产生直接影响，而动态规划则不是。贪心算法对每个子问题的解决方案都做出选择，不能回退；动态规划则会根据以前的选择结果对当前进行选择，有回退功能。动态规划主要运用于二维或三维问题，而贪心一般是一维问题。</p>
-<h3 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h3><p><strong>思想</strong><br>贪心算法的基本思路是从问题的某一个初始解出发一步一步地进行，根据某个优化测度，每一步都要确保能获得局部最优解。每一步只考虑一个数据，他的选取应该满足局部优化的条件。若下一个数据和部分最优解连在一起不再是可行解时，就不把该数据添加到部分解中，直到把所有数据枚举完，或者不能再添加算法停止。<br><strong>过程</strong></p>
-<ol>
-<li>建立数学模型来描述问题；</li>
-<li>把求解的问题分成若干个子问题；</li>
-<li>对每一子问题求解，得到子问题的局部最优解；</li>
-<li>把子问题的解局部最优解合成原来解问题的一个解。</li>
-</ol>
-<h3 id="算法特性"><a href="#算法特性" class="headerlink" title="算法特性"></a>算法特性</h3><ul>
-<li>贪婪算法可解决的问题通常大部分都有如下的特性：<br>随着算法的进行，将积累起其它两个集合：一个包含已经被考虑过并被选出的候选对象，另一个包含已经被考虑过但被丢弃的候选对象。</li>
-<li>有一个函数来检查一个候选对象的集合是否提供了问题的解答。该函数不考虑此时的解决方法是否最优。</li>
-<li>还有一个函数检查是否一个候选对象的集合是可行的，也即是否可能往该集合上添加更多的候选对象以获得一个解。和上一个函数一样，此时不考虑解决方法的最优性。</li>
-<li>选择函数可以指出哪一个剩余的候选对象最有希望构成问题的解。</li>
-<li>最后，目标函数给出解的值。</li>
-<li>为了解决问题，需要寻找一个构成解的候选对象集合，它可以优化目标函数，贪婪算法一步一步的进行。起初，算法选出的候选对象的集合为空。接下来的每一步中，根据选择函数，算法从剩余候选对象中选出最有希望构成解的对象。如果集合中加上该对象后不可行，那么该对象就被丢弃并不再考虑；否则就加到集合里。每一次都扩充集合，并检查该集合是否构成解。如果贪婪算法正确工作，那么找到的第一个解通常是最优的。</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>test1</title>
-    <url>/2019/09/19/test/</url>
-    <content><![CDATA[<h3 id="算法导读"><a href="#算法导读" class="headerlink" title="算法导读"></a>算法导读</h3><p>本期算法讲解思路：<br>白话算法-&gt;算法思路-&gt;实例：八皇后问题-&gt;实例：01背包问题-&gt;算法教你玩数独</p>
-<h3 id="白话算法"><a href="#白话算法" class="headerlink" title="白话算法"></a>白话算法</h3><p><em>回溯法（back tracking）</em> （探索与回溯法）是一种选优搜索法，又称为试探法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为“回溯点”。</p>
-<blockquote>
-<p>白话：回溯法可以理解为通过选择不同的岔路口寻找目的地，一个岔路口一个岔路口的去尝试找到目的地。如果走错了路，继续返回来找到岔路口的另一条路，直到找到目的地。</p>
-</blockquote>
-<h3 id="实例一：八皇后问题"><a href="#实例一：八皇后问题" class="headerlink" title="实例一：八皇后问题"></a>实例一：八皇后问题</h3><p>八皇后问题是一个古老而著名的问题，是回溯算法的典型例题。该问题是十九世纪著名的数学家高斯1850年提出：在8X8格的国际象棋上摆放八个皇后<em>（棋子）</em>，使其不能互相攻击，即任意两个皇后都不能处于同一行、同一列或同一斜线上。</p>
-<blockquote>
-<p>小白面试经：理解如何解决这个问题，回溯法的精髓已经get。如果只是想了解算法面试知识，知道解决这个问题就能完成你的算法积累了。<em>想快速掌握算法，可以直接查看解题思路的四个步骤。</em></p>
-</blockquote>
-<h3 id="八皇后问题解题思路："><a href="#八皇后问题解题思路：" class="headerlink" title="八皇后问题解题思路："></a>八皇后问题解题思路：</h3><blockquote>
-<p>问题简化：下面我们将八皇后问题转化为四皇后问题，并用回溯法来找到它的解<br><em>目的：</em>在4x4棋盘上，使得4个皇后不能在同行同列以及同斜线上。</p>
-</blockquote>
-<h3 id="代码实现八皇后问题"><a href="#代码实现八皇后问题" class="headerlink" title="代码实现八皇后问题"></a>代码实现八皇后问题</h3><p>我们将算法也设置成两步，<br><em>第一步</em> 我们要判断每次输入的皇后是否在同一行同一列，或者同一斜线上。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bool is_ok(int row)&#123;            //判断设置的皇后是否在同一行，同一列，或者同一斜线上</span><br><span class="line">    for (int j=0;j&lt;row;j++)</span><br><span class="line">    &#123;</span><br><span class="line">        if (queen[row]==queen[j]||row-queen[row]==j-queen[j]||row+queen[row]==j+queen[j])</span><br><span class="line">            return false;       </span><br><span class="line">    &#125;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>Dockerfile</title>
+    <url>/2019/10/24/Dockerfile/</url>
+    <content><![CDATA[<p><code>Dockerfile</code>是一个包含用于组合映像的命令的文本文档。可以使用在命令行中调用任何命令。<br>Docker通过读取Dockerfile中的指令自动生成映像。</p>
+<p><code>docker build</code>命令用于从Dockerfile构建映像。<br>可以在<code>docker build</code>命令中使用<code>-f</code>标志指向文件系统中任何位置的Dockerfile。</p>
+<p>常用命令的说明</p>
+<hr>
+<p>Docker以从上到下的顺序运行Dockerfile的指令。<br>为了指定基本映像，第一条指令必须是FROM。<br>一个声明以＃字符开头则被视为注释。可以在Docker文件中使用<code>RUN</code>，<code>CMD</code>，<code>FROM</code>，<code>EXPOSE</code>，<code>ENV</code>等指令。</p>
+<p>一些基本命令的说明：</p>
+<h4 id="FROM"><a href="#FROM" class="headerlink" title="FROM"></a>FROM</h4><p>该指令用于设置后续指令的基本映像。有效的Dockerfile必须使用<code>FROM</code>作为其第一条指令。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FROM ubuntu</span><br></pre></td></tr></table></figure>
 
-<p><em>第二步</em>我们用十行代码来进入我们核心算法</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">void back_tracking(int row=0)    //算法函数，从第0行开始遍历</span><br><span class="line">&#123;</span><br><span class="line">    if (row==n)</span><br><span class="line">        t ++;               //判断若遍历完成，就进行计数     </span><br><span class="line">        for (int col=0;col&lt;n;col++)     //遍历棋盘每一列</span><br><span class="line">        &#123;</span><br><span class="line">            queen[row] = col;           //将皇后的位置记录在数组</span><br><span class="line">            if (is_ok(row))             //判断皇后的位置是否有冲突</span><br><span class="line">                back_tracking(row+1);   //递归，计算下一个皇后的位置</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+<h4 id="MAINTAINER"><a href="#MAINTAINER" class="headerlink" title="MAINTAINER"></a>MAINTAINER</h4><p>指定作者<br>语法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">MAINTAINER &lt;name&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="EXPOSE"><a href="#EXPOSE" class="headerlink" title="EXPOSE"></a>EXPOSE</h4><p>功能为暴漏容器运行时的监听端口给外部<br>但是EXPOSE并不会使容器访问主机的端口<br>如果想使得容器与主机的端口有映射关系，必须在容器启动的时候加上 -P参数</p>
+<h4 id="ENV"><a href="#ENV" class="headerlink" title="ENV"></a>ENV</h4><p>功能为设置环境变量<br>语法有两种：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. ENV &lt;key&gt;&lt;value&gt;</span><br><span class="line">2. ENV &lt;key&gt;=&lt;value&gt; ...</span><br></pre></td></tr></table></figure>
+
+<p>两者的区别就是第一种是一次设置一个，第二种是一次设置多个</p>
+<h4 id="LABEL"><a href="#LABEL" class="headerlink" title="LABEL"></a>LABEL</h4><p>用来标明dockerfile的标签 可以使用Label代替Maintainer 最终都是在docker image基本信息中可以查看</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LABEL &lt;key&gt;=&lt;value&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="RUN"><a href="#RUN" class="headerlink" title="RUN"></a>RUN</h4><p>功能为运行指定的命令,RUN命令有两种格式</p>
+<figure class="highlight plain"><figcaption><span><command></span></figcaption><table><tr><td class="code"><pre><span class="line">RUN [&quot;executable&quot;, &quot;param1&quot;, &quot;param2&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>第一种后边直接跟shell命令<br>在linux操作系统上默认 /bin/sh -c<br>在windows操作系统上默认 cmd /S /C</p>
+<p>两种写法比对：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. RUN /bin/bash -c &apos;source $HOME/.bashrc; echo $HOME</span><br><span class="line">2. RUN [&quot;/bin/bash&quot;, &quot;-c&quot;, &quot;echo hello&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>注意：多行命令不要写多个RUN，原因是Dockerfile中每一个指令都会建立一层.多少个RUN就构建了多少层镜像，会造成镜像的臃肿、多层，不仅仅增加了构件部署的时间，还容易出错。RUN书写时的换行符是\</p>
+<h4 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h4><p>容器启动时要运行的命令，有三种写法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. CMD [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;]</span><br><span class="line">2. CMD [&quot;param1&quot;,&quot;param2&quot;]</span><br><span class="line">3. CMD command param1 param2</span><br></pre></td></tr></table></figure>
+
+<p>第三种比较好理解了，就是shell这种执行方式和写法<br>第一种和第二种其实都是可执行文件加上参数的形式</p>
+<p>举例说明两种写法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. CMD [ &quot;sh&quot;, &quot;-c&quot;, &quot;echo $HOME&quot;</span><br><span class="line">2. CMD [ &quot;echo&quot;, &quot;$HOME&quot; ]</span><br></pre></td></tr></table></figure>
+
+<p>补充：这里边包括参数的一定要用双引号，就是”,不能是单引号。千万不能写成单引号。<br>原因是参数传递后，docker解析的是一个JSON array</p>
+<h4 id="RUN-amp-CMD-的区别"><a href="#RUN-amp-CMD-的区别" class="headerlink" title="RUN &amp; CMD 的区别"></a>RUN &amp; CMD 的区别</h4><p>RUN是构件容器时就运行的命令以及提交运行结果<br>CMD是容器启动时执行的命令，在构件时并不运行，构件时紧紧指定了这个命令到底是个什么样子</p>
+<h4 id="ADD"><a href="#ADD" class="headerlink" title="ADD"></a>ADD</h4><p>把文件复制到镜像中<br>如果把虚拟机与容器想象成两台linux服务器的话，那么这个命令就类似于scp，只是scp需要加用户名和密码的权限验证，而ADD不用。<br>语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. ADD &lt;src&gt;... &lt;dest&gt;</span><br><span class="line">2. ADD [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>dest 路径的填写可以是容器内的绝对路径，也可以是相对于工作目录的相对路径<br>src可以是一个本地文件或者是一个本地压缩文件，还可以是一个url<br>如果把src写成一个url，那么ADD就类似于wget命令<br>如以下写法都是可以的： </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ADD test relativeDir/ </span><br><span class="line">ADD test /relativeDir</span><br><span class="line">ADD http://example.com/foobar /</span><br></pre></td></tr></table></figure>
+
+<p>尽量不要把scr写成一个文件夹，如果src是一个文件夹了，复制整个目录的内容,包括文件系统元数据</p>
+<h4 id="COPY"><a href="#COPY" class="headerlink" title="COPY"></a>COPY</h4><p>复制命令<br>语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">COPY &lt;src&gt;... &lt;dest&gt;</span><br><span class="line">COPY [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>与ADD的区别:<br>COPY的src只能是本地文件，其他用法一致</p>
+<hr>
+<h4 id="整体逻辑图"><a href="#整体逻辑图" class="headerlink" title="整体逻辑图"></a>整体逻辑图</h4><p>从网上盗了张图  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: )</p>
+<p><img src="https://s1.51cto.com/images/blog/201905/27/4bdf2128fa547271a482544e49e47366.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_90,type_ZmFuZ3poZW5naGVpdGk=" alt="pic"></p>
+]]></content>
   </entry>
 </search>
