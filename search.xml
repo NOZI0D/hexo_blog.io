@@ -121,7 +121,7 @@
 <ul>
 <li>求和：<code>\sum</code><br>  例如：<code>\sum_{i=1}^n{a_i}</code>  呈现为$\sum_{i=1}^n{a_i}$</li>
 <li>极限：<code>\lim</code><br>  例如：<code>\lim_{x\to 0}</code>  呈现为 $\lim_{x\to 0}$</li>
-<li>积分：<code>\int</code><br>  例如：<code>\int_0^\infty{fxdx}</code>  呈现为$\int_0^\infty{fxdx}$</li>
+<li>积分：<code>\int</code><br>  例如：<code>\int_0^\infty{fxdx}</code>  呈现为$\int_0^\infty{f(x)dx}$</li>
 </ul>
 ]]></content>
   </entry>
