@@ -19,7 +19,9 @@
 <p> <a href="https://tartarus.org/martin/PorterStemmer/" target="_blank" rel="noopener">https://tartarus.org/martin/PorterStemmer/</a></p>
 </li>
 <li><p>Snowball算法</p>
-<p> 种算法也称为 Porter2 词干算法。它几乎被普遍认为比 Porter 更好，甚至发明 Porter 的开发者也这么认为。Snowball 在 Porter 的基础上加了很多优化。</p>
+<p> <a href="http://snowball.tartarus.org/algorithms/english/stemmer.html" target="_blank" rel="noopener">http://snowball.tartarus.org/algorithms/english/stemmer.html</a></p>
+<p> elasticsearch内可选择使用此算法进行词干提取</p>
+<p> 这种算法也称为 Porter2 词干算法。它几乎被普遍认为比 Porter 更好，甚至发明 Porter 的开发者也这么认为。Snowball 在 Porter 的基础上加了很多优化。</p>
 </li>
 </ol>
 ]]></content>
@@ -185,10 +187,201 @@
 ]]></content>
   </entry>
   <entry>
-    <title>elasticsearch</title>
-    <url>/2020/05/16/elasticsearch/</url>
-    <content><![CDATA[<p>倒排索引</p>
-<p>term查询和terms查询</p>
+    <title>elasticsearch倒排索引</title>
+    <url>/2020/05/16/elasticsearch%E5%80%92%E6%8E%92%E7%B4%A2%E5%BC%95/</url>
+    <content><![CDATA[<h4 id="倒排索引"><a href="#倒排索引" class="headerlink" title="倒排索引"></a>倒排索引</h4><p>Elasticsearch 使用一种称为 倒排索引 的结构，它适用于快速的全文搜索。一个倒排索引由文档中所有不重复词的列表构成，对于其中每个词，有一个包含它的文档列表。</p>
+<p>简单记为：<br>正排索引： 文档—&gt;单词<br>倒排索引： 单词—&gt;文档</p>
+<p>例如，假设我们有两个文档，每个文档的 content 域包含如下内容：</p>
+<ol>
+<li>The quick brown fox jumped over the lazy dog</li>
+<li>Quick brown foxes leap over lazy dogs in summer</li>
+</ol>
+<p>为了创建倒排索引，我们首先将每个文档的 <code>content 域</code>拆分成单独的 词（我们称它为 <code>词条</code> 或 <code>tokens</code> ），创建一个包含所有不重复词条的排序列表，然后列出每个词条出现在哪个文档。结果如下所示：</p>
+<table>
+<thead>
+<tr>
+<th align="center">Term</th>
+<th align="center">Doc_1</th>
+<th align="center">Doc_2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Quick</td>
+<td align="center"></td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">The</td>
+<td align="center">X</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">brown</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">dog</td>
+<td align="center">X</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">dogs</td>
+<td align="center"></td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">fox</td>
+<td align="center">X</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">foxes</td>
+<td align="center"></td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">in</td>
+<td align="center"></td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">jumped</td>
+<td align="center">X</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">lazy</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">leap</td>
+<td align="center"></td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">over</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">quick</td>
+<td align="center">X</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">summer</td>
+<td align="center"></td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">the</td>
+<td align="center">X</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>现在，如果我们想搜索 <code>quick brown</code> ，我们只需要查找包含每个词条的文档：</p>
+<table>
+<thead>
+<tr>
+<th align="center">erm</th>
+<th align="center">Doc_1</th>
+<th align="center">Doc_2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">brown</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">quick</td>
+<td align="center">X</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Total</td>
+<td align="center">2</td>
+<td align="center">1</td>
+</tr>
+</tbody></table>
+<p>两个文档都匹配，但是第一个文档比第二个匹配度更高。如果我们使用仅计算匹配词条数量的简单 相似性算法 ，那么，我们可以说，对于我们查询的相关性来讲，第一个文档比第二个文档更佳。</p>
+<p>但是，我们目前的倒排索引有一些问题：</p>
+<p><code>涉及到词干提取和词性还原</code></p>
+<ul>
+<li><code>Quick</code> 和 <code>quick</code> 以独立的词条出现，然而用户可能认为它们是相同的词。</li>
+<li><code>fox</code> 和 <code>foxes</code> 非常相似, 就像 <code>dog</code> 和 <code>dogs</code> ；他们有相同的词根。</li>
+<li><code>jumped</code> 和 <code>leap</code>, 尽管没有相同的词根，但他们的意思很相近。他们是同义词。</li>
+</ul>
+<p>使用前面的索引搜索 <code>+Quick +fox</code> 不会得到任何匹配文档。（记住，<code>+</code> 前缀表明这个词必须存在。）只有同时出现 <code>Quick</code> 和 <code>fox</code> 的文档才满足这个查询条件，但是第一个文档包含 <code>quick fox</code> ，第二个文档包含 <code>Quick foxes</code> 。</p>
+<p>我们的用户可以合理的期望两个文档与查询匹配。我们可以做的更好。<br>如果我们将词条规范为标准模式，那么我们可以找到与用户搜索的词条不完全一致，但具有足够相关性的文档。例如：</p>
+<ul>
+<li><code>Quick</code> 可以小写化为 <code>quick</code> 。</li>
+<li><code>foxes</code> 可以 <code>词干提取</code> –变为词根的格式– 为 <code>fox</code> 。类似的， <code>dogs</code> 可以为提取为 <code>dog</code> 。</li>
+<li><code>jumped</code> 和 <code>leap</code> 是同义词，可以索引为相同的单词 <code>jump</code> 。</li>
+</ul>
+<p>现在索引看上去像这样：</p>
+<table>
+<thead>
+<tr>
+<th align="center">Term</th>
+<th align="center">Doc_1</th>
+<th align="center">Doc_2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">brown</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">dog</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">fox</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">in</td>
+<td align="center"></td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">jump</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">lazy</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">over</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">quick</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">summer</td>
+<td align="center"></td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="center">the</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+</tbody></table>
+<p>这还远远不够。我们搜索 <code>+Quick +fox</code> 仍然 会失败，因为在我们的索引中，已经没有 <code>Quick</code> 了。但是，如果我们对搜索的字符串使用与 <code>content</code> 域相同的标准化规则，会变成查询 <code>+quick +fox</code> ，这样两个文档都会匹配！</p>
 ]]></content>
   </entry>
   <entry>
