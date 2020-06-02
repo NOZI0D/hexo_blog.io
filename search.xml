@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>NLP词干提取和词性还原</title>
+    <url>/2020/06/02/NLP%E8%AF%8D%E5%B9%B2%E6%8F%90%E5%8F%96%E5%92%8C%E8%AF%8D%E6%80%A7%E8%BF%98%E5%8E%9F/</url>
+    <content><![CDATA[<p><code>词形还原（lemmatization）</code>，是把一个任何形式的语言词汇还原为一般形式（能表达完整语义），而<code>词干提取（stemming）</code>是抽取词的词干或词根形式（不一定能够表达完整语义）。词形还原和词干提取是词形规范化的两类重要方式，都能够达到有效归并词形的目的，二者既有联系也有区别。</p>
+<p>二者区别：</p>
+<ol>
+<li>在原理上，词干提取主要是采用“缩减”的方法，<code>将词转换为词干</code>，如将“cats”处理为“cat”，将“effective”处理为“effect”。而词形还原主要采用“转变”的方法，<code>将词转变为其原形</code>，如将“drove”处理为“drive”，将“driving”处理为“drive”。</li>
+<li>在复杂性上，词干提取方法相对简单，词形还原则需要返回词的原形，需要对词形进行分析，不仅要进行词缀的转化，还要进行词性识别，区分相同词形但<br>原形不同的词的差别。词性标注的准确率也直接影响词形还原的准确率，因此，词形还原更为复杂。</li>
+<li>在实现方法上，虽然词干提取和词形还原实现的主流方法类似，但二者在具体实现上各有侧重。词干提取的实现方法主要利用规则变化进行词缀的去除和缩减，从而达到词的简化效果。词形还原则相对较复杂，有复杂的形态变化，单纯依据规则无法很好地完成。其更依赖于词典，进行词形变化和原形的映射，生成词典中的有效词。</li>
+<li>在结果上，词干提取和词形还原也有部分区别。词干提取的结果可能并不是完整的、具有意义的词，而只是词的一部分，如“revival”词干提取的结果为“reviv”，“ailiner”词干提取的结果为“airlin”。而经词形还原处理后获得的结果是具有一定意义的、完整的词，一般为词典中的有效词。</li>
+<li>在应用领域上，同样各有侧重。虽然二者均被应用于信息检索和文本处理中，但侧重不同。词干提取更多被应用于信息检索领域，如Solr、Lucene等，用于扩展检索，粒度较粗。词形还原更主要被应用于文本挖掘、自然语言处理，用于更细粒度、更为准确的文本分析和表达</li>
+</ol>
+<hr>
+<p>词干提取算法</p>
+<ol>
+<li><p>Porter算法</p>
+<p> <a href="https://tartarus.org/martin/PorterStemmer/" target="_blank" rel="noopener">https://tartarus.org/martin/PorterStemmer/</a></p>
+</li>
+<li><p>Snowball算法</p>
+<p> 种算法也称为 Porter2 词干算法。它几乎被普遍认为比 Porter 更好，甚至发明 Porter 的开发者也这么认为。Snowball 在 Porter 的基础上加了很多优化。</p>
+</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>面试题记录</title>
+    <url>/2020/05/24/%E9%9D%A2%E8%AF%95%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h4 id="Python闭包"><a href="#Python闭包" class="headerlink" title="Python闭包"></a>Python闭包</h4><p>闭包的必要条件：</p>
+<ul>
+<li>闭包函数必须返回一个函数对象</li>
+<li>闭包函数返回的那个函数必须引用外部变量（一般不能是全局变量），而返回的那个函数内部不一定要return<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">当一个嵌套函数在其外部区域引用了一个值时，该嵌套函数就是一个闭包，以下代码输出值为：</span><br><span class="line"></span><br><span class="line">def adder(x):</span><br><span class="line">    def wrapper(y):</span><br><span class="line">        return x + y</span><br><span class="line">    # 返回的是一个函数对象</span><br><span class="line">    return wrapper</span><br><span class="line">adder5 = adder(5)  #返回函数对象，故下一次调用adder5实则为调用wrapper这个内部函数，x仍为5</span><br><span class="line">print(adder5(adder5(6)))</span><br><span class="line"></span><br><span class="line">- - -</span><br><span class="line"># __closure__属性返回的是一个元组对象，包含了闭包引用的外部变量</span><br><span class="line"># 若主函数内的闭包不引用外部变量，就不存在闭包，主函数的__closure__属性永远为None</span><br><span class="line"># 若主函数没有return子函数，就不存在闭包，主函数不存在__closure__属性</span><br><span class="line"># 闭包作为对象被返回时，它的引用变量就已经确定（已经保存在它的__closure__属性中），不会再被修改</span><br><span class="line">print(adder(5).__closure__)</span><br><span class="line">for i in adder(5).__closure__:#打印引用的外部变量</span><br><span class="line">    print(i.cell_contents)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<h4 id="if-name-‘main‘"><a href="#if-name-‘main‘" class="headerlink" title="if name == ‘main‘:"></a>if <strong>name</strong> == ‘<strong>main</strong>‘:</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    print (&apos;This program is being run by itself&apos;)</span><br><span class="line">else:</span><br><span class="line">    print (&apos;I am being imported from another module&apos;)</span><br></pre></td></tr></table></figure>
+
+<p>两种运行方式的结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ python test.py</span><br><span class="line">This program is being run by ifself</span><br><span class="line">$ python</span><br><span class="line">&gt;&gt;&gt; import test</span><br><span class="line">I am being imported from another module</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>第一种是作为一个脚本运行，第二种是作为一个库运行，通过这个结果我们知道，当程序单独作为脚本运行时其name属性是”<strong>main</strong>“，而作为库时name属性是库的名字。</p>
+<p>所以说<strong>name</strong> == “<strong>main</strong>“将程序定义功能和执行功能分开，理想情况下，从命令行调用时，几乎每个Python模块都可以执行相应操作。在许多情况下，如果特定文件定义仅在系统的其他组件中使用或者作为测试执行脚本时，则可以使用<strong>name</strong> == “<strong>main</strong>“隔离代码块来区别脚本的不同功能属性。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Markdown中的数学公式</title>
     <url>/2020/05/20/Markdown%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
     <content><![CDATA[<h4 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h4><ul>
