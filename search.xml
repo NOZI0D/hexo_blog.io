@@ -1,497 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>简历</title>
-    <url>/2020/06/03/%E7%AE%80%E5%8E%86/</url>
-    <content><![CDATA[<h3 id="个人信息"><a href="#个人信息" class="headerlink" title="个人信息"></a><strong>个人信息</strong></h3><ul>
-<li>纪泽平 /  男 / 1996.3</li>
-<li>手机：13138560301</li>
-<li>邮箱：<a href="mailto:fortunatecauchy@163.com" target="_blank" rel="noopener">fortunatecauchy@163.com</a></li>
-<li>GitHub：<a href="https://github.com/NOZI0D" target="_blank" rel="noopener">https://github.com/NOZI0D</a></li>
-</ul>
-<h3 id="教育经历-emsp-2014-9-2018-6"><a href="#教育经历-emsp-2014-9-2018-6" class="headerlink" title="教育经历 &emsp; 2014.9 - 2018.6"></a><strong>教育经历</strong> &emsp; <code>2014.9 - 2018.6</code></h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">广东科技学院 网络工程 本科</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>主修 <strong>计算机网络</strong> 、<strong>数据结构</strong> 、<strong>高等数学</strong> 、<strong>数据库原理</strong> 、<strong>线性代数</strong> 、<strong>Linux</strong> 等</li>
-</ul>
-<h3 id="工作经历-emsp-2019-4-至今"><a href="#工作经历-emsp-2019-4-至今" class="headerlink" title="工作经历  &emsp;  2019.4 - 至今"></a><strong>工作经历</strong>  &emsp;  <code>2019.4 - 至今</code></h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">厦门云译科技有限公司  爬虫工程师</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p><strong>爬虫</strong>  </p>
-<ul>
-<li>负责翻译引擎语料爬取，并对数据进行清洗、去重等，处理成行对齐文本</li>
-<li>负责查找语料来源，记录相关语料信息</li>
-<li>已完成网站：UNTERM联合国术语数据库、条约数据库、中国驻世界各国大使馆网站、FT中文网等</li>
-<li>负责语料互造工作：通过中间语言语料爬取谷歌翻译的目标语言语料</li>
-</ul>
-</li>
-<li><p><strong>语料管理平台开发</strong></p>
-<ul>
-<li>负责完成语料上传到服务器功能、实现大文件高效地分片上传</li>
-<li>利用elasticsearch实现全文检索功能</li>
-<li>使用DataTables实现数据页面的展示、分页、排序等功能</li>
-<li>实现已质检语料发送到指定内部FTP功能</li>
-<li>完成用户权限管理功能</li>
-</ul>
-</li>
-<li><p><strong>技能清单</strong><br>  熟练掌握的技能：</p>
-<ul>
-<li><p>编程语言：<strong>Python</strong> / <strong>JavaScript</strong></p>
-</li>
-<li><p>后端框架：<strong>Flask</strong></p>
-</li>
-<li><p>前端：<strong>Bootstrap</strong> 、<strong>Ajax</strong> 、<strong>Html</strong> 、<strong>CSS</strong></p>
-</li>
-<li><p>爬虫：<strong>Scrapy</strong> 、<strong>正则表达式</strong> 、<strong>Xpath</strong> 、<strong>Selenium</strong></p>
-</li>
-<li><p>数据库：<strong>Mysql</strong> 、<strong>mongodb</strong></p>
-</li>
-<li><p>OS：<strong>Centos</strong> 及 <strong>Linux</strong> 常用命令</p>
-<p>接触并了解的技能：  </p>
-</li>
-<li><p>数据库：<strong>redis</strong></p>
-</li>
-<li><p><strong>Numpy</strong> 、<strong>Pandas</strong> 、<strong>Docker</strong></p>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>NLP词干提取和词性还原</title>
-    <url>/2020/06/02/NLP%E8%AF%8D%E5%B9%B2%E6%8F%90%E5%8F%96%E5%92%8C%E8%AF%8D%E6%80%A7%E8%BF%98%E5%8E%9F/</url>
-    <content><![CDATA[<p><code>词形还原（lemmatization）</code>，是把一个任何形式的语言词汇还原为一般形式（能表达完整语义），而<code>词干提取（stemming）</code>是抽取词的词干或词根形式（不一定能够表达完整语义）。词形还原和词干提取是词形规范化的两类重要方式，都能够达到有效归并词形的目的，二者既有联系也有区别。</p>
-<p>二者区别：</p>
-<ol>
-<li>在原理上，词干提取主要是采用“缩减”的方法，<code>将词转换为词干</code>，如将“cats”处理为“cat”，将“effective”处理为“effect”。而词形还原主要采用“转变”的方法，<code>将词转变为其原形</code>，如将“drove”处理为“drive”，将“driving”处理为“drive”。</li>
-<li>在复杂性上，词干提取方法相对简单，词形还原则需要返回词的原形，需要对词形进行分析，不仅要进行词缀的转化，还要进行词性识别，区分相同词形但<br>原形不同的词的差别。词性标注的准确率也直接影响词形还原的准确率，因此，词形还原更为复杂。</li>
-<li>在实现方法上，虽然词干提取和词形还原实现的主流方法类似，但二者在具体实现上各有侧重。词干提取的实现方法主要利用规则变化进行词缀的去除和缩减，从而达到词的简化效果。词形还原则相对较复杂，有复杂的形态变化，单纯依据规则无法很好地完成。其更依赖于词典，进行词形变化和原形的映射，生成词典中的有效词。</li>
-<li>在结果上，词干提取和词形还原也有部分区别。词干提取的结果可能并不是完整的、具有意义的词，而只是词的一部分，如“revival”词干提取的结果为“reviv”，“ailiner”词干提取的结果为“airlin”。而经词形还原处理后获得的结果是具有一定意义的、完整的词，一般为词典中的有效词。</li>
-<li>在应用领域上，同样各有侧重。虽然二者均被应用于信息检索和文本处理中，但侧重不同。词干提取更多被应用于信息检索领域，如Solr、Lucene等，用于扩展检索，粒度较粗。词形还原更主要被应用于文本挖掘、自然语言处理，用于更细粒度、更为准确的文本分析和表达</li>
-</ol>
-<hr>
-<p>词干提取算法</p>
-<ol>
-<li><p>Porter算法</p>
-<p> <a href="https://tartarus.org/martin/PorterStemmer/" target="_blank" rel="noopener">https://tartarus.org/martin/PorterStemmer/</a></p>
-</li>
-<li><p>Snowball算法</p>
-<p> <a href="http://snowball.tartarus.org/algorithms/english/stemmer.html" target="_blank" rel="noopener">http://snowball.tartarus.org/algorithms/english/stemmer.html</a></p>
-<p> elasticsearch内可选择使用此算法进行词干提取</p>
-<p> 这种算法也称为 Porter2 词干算法。它几乎被普遍认为比 Porter 更好，甚至发明 Porter 的开发者也这么认为。Snowball 在 Porter 的基础上加了很多优化。</p>
-</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>面试题记录</title>
-    <url>/2020/05/24/%E9%9D%A2%E8%AF%95%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h4 id="Python闭包"><a href="#Python闭包" class="headerlink" title="Python闭包"></a>Python闭包</h4><p>闭包的必要条件：</p>
-<ul>
-<li>闭包函数必须返回一个函数对象</li>
-<li>闭包函数返回的那个函数必须引用外部变量（一般不能是全局变量），而返回的那个函数内部不一定要return<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">当一个嵌套函数在其外部区域引用了一个值时，该嵌套函数就是一个闭包，以下代码输出值为：</span><br><span class="line"></span><br><span class="line">def adder(x):</span><br><span class="line">    def wrapper(y):</span><br><span class="line">        return x + y</span><br><span class="line">    # 返回的是一个函数对象</span><br><span class="line">    return wrapper</span><br><span class="line">adder5 = adder(5)  #返回函数对象，故下一次调用adder5实则为调用wrapper这个内部函数，x仍为5</span><br><span class="line">print(adder5(adder5(6)))</span><br><span class="line"></span><br><span class="line">- - -</span><br><span class="line"># __closure__属性返回的是一个元组对象，包含了闭包引用的外部变量</span><br><span class="line"># 若主函数内的闭包不引用外部变量，就不存在闭包，主函数的__closure__属性永远为None</span><br><span class="line"># 若主函数没有return子函数，就不存在闭包，主函数不存在__closure__属性</span><br><span class="line"># 闭包作为对象被返回时，它的引用变量就已经确定（已经保存在它的__closure__属性中），不会再被修改</span><br><span class="line">print(adder(5).__closure__)</span><br><span class="line">for i in adder(5).__closure__:#打印引用的外部变量</span><br><span class="line">    print(i.cell_contents)</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<hr>
-<h4 id="if-name-‘main‘"><a href="#if-name-‘main‘" class="headerlink" title="if name == ‘main‘:"></a>if <strong>name</strong> == ‘<strong>main</strong>‘:</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    print (&apos;This program is being run by itself&apos;)</span><br><span class="line">else:</span><br><span class="line">    print (&apos;I am being imported from another module&apos;)</span><br></pre></td></tr></table></figure>
-
-<p>两种运行方式的结果</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ python test.py</span><br><span class="line">This program is being run by ifself</span><br><span class="line">$ python</span><br><span class="line">&gt;&gt;&gt; import test</span><br><span class="line">I am being imported from another module</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>第一种是作为一个脚本运行，第二种是作为一个库运行，通过这个结果我们知道，当程序单独作为脚本运行时其name属性是”<strong>main</strong>“，而作为库时name属性是库的名字。</p>
-<p>所以说<strong>name</strong> == “<strong>main</strong>“将程序定义功能和执行功能分开，理想情况下，从命令行调用时，几乎每个Python模块都可以执行相应操作。在许多情况下，如果特定文件定义仅在系统的其他组件中使用或者作为测试执行脚本时，则可以使用<strong>name</strong> == “<strong>main</strong>“隔离代码块来区别脚本的不同功能属性。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Markdown中的数学公式</title>
-    <url>/2020/05/20/Markdown%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
-    <content><![CDATA[<h4 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h4><ul>
-<li>正文(inline)中的LaTeX公式用<code>$...$</code>定义</li>
-<li>语句为<code>$\sum_{i=0}^N\int_{a}^{b}g(t,i){d}t$</code></li>
-<li>显示在当前行内<br>  $\sum_{i=0}^N\int_{a}^{b}g(t,i){d}t$</li>
-<li>单独显示(display)的LaTeX公式用<code>$$...$$</code>定义，此时公式居中并放大显示</li>
-<li>显示为<br>  $$\sum_{i=0}N\int_{a}{b}g(t,i)\text{d}t$$</li>
-</ul>
-<hr>
-<h4 id="希腊字母"><a href="#希腊字母" class="headerlink" title="希腊字母"></a>希腊字母</h4><table>
-<thead>
-<tr>
-<th align="center">显示</th>
-<th align="center">命令</th>
-<th align="center">显示</th>
-<th align="center">命令</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">$\alpha$</td>
-<td align="center">\alpha</td>
-<td align="center">$\beta$</td>
-<td align="center">\beta</td>
-</tr>
-<tr>
-<td align="center">$\gamma$</td>
-<td align="center">\gamma</td>
-<td align="center">$\delta$</td>
-<td align="center">\delta</td>
-</tr>
-<tr>
-<td align="center">$\epsilon$</td>
-<td align="center">\epsilon</td>
-<td align="center">$\zeta$</td>
-<td align="center">\zeta</td>
-</tr>
-<tr>
-<td align="center">$\eta$</td>
-<td align="center">\eta</td>
-<td align="center">$\theta$</td>
-<td align="center">\theta</td>
-</tr>
-<tr>
-<td align="center">$\iota$</td>
-<td align="center">\iota</td>
-<td align="center">$\kappa$</td>
-<td align="center">\kappa</td>
-</tr>
-<tr>
-<td align="center">$\lambda$</td>
-<td align="center">\lambda</td>
-<td align="center">$\mu$</td>
-<td align="center">\mu</td>
-</tr>
-<tr>
-<td align="center">$\nu$</td>
-<td align="center">\nu</td>
-<td align="center">$\xi$</td>
-<td align="center">\xi</td>
-</tr>
-<tr>
-<td align="center">$\pi$</td>
-<td align="center">\pi</td>
-<td align="center">$\rho$</td>
-<td align="center">\rho</td>
-</tr>
-<tr>
-<td align="center">$\sigma$</td>
-<td align="center">\sigma</td>
-<td align="center">$\tau$</td>
-<td align="center">\tau</td>
-</tr>
-<tr>
-<td align="center">$\upsilon$</td>
-<td align="center">\upsilon</td>
-<td align="center">$\phi$</td>
-<td align="center">\phi</td>
-</tr>
-<tr>
-<td align="center">$\chi$</td>
-<td align="center">\chi</td>
-<td align="center">$\psi$</td>
-<td align="center">\psi</td>
-</tr>
-<tr>
-<td align="center">$\omega$</td>
-<td align="center">\omega</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<ul>
-<li>若需要大写希腊字母，将命令首字母大写即可。<br><code>$$\Gamma$$</code>呈现为<br>  $$\Gamma$$</li>
-<li>若需要斜体希腊字母，将命令前加上var前缀即可。<br><code>$$\varGamma$$</code>呈现为<br>  $$\varGamma$$</li>
-</ul>
-<hr>
-<h4 id="字母修饰"><a href="#字母修饰" class="headerlink" title="字母修饰"></a>字母修饰</h4><ol>
-<li><h6 id="上下标"><a href="#上下标" class="headerlink" title="上下标"></a>上下标</h6></li>
-</ol>
-<ul>
-<li>上标：<code>^</code></li>
-<li>下标：<code>_</code><br>例如：<code>$$C^2_n$$</code><br>$$C^2_n$$</li>
-</ul>
-<ol start="2">
-<li><h6 id="矢量"><a href="#矢量" class="headerlink" title="矢量"></a>矢量</h6>例如：<code>$$\vec a$$</code><br>$$\vec a$$<br><code>$$\overrightarrow{xy}$$</code><br>$$\overrightarrow{xy}$$<br><code>$$\overleftarrow {xy}$$</code><br>$$\overleftarrow {xy}$$</li>
-<li><h6 id="括号"><a href="#括号" class="headerlink" title="括号"></a>括号</h6></li>
-</ol>
-<ul>
-<li>小括号：<code>()</code>呈现为 $()$</li>
-<li>中括号：<code>[]</code>呈现为 $[]$</li>
-<li>尖括号：<code>\langle, \rangle</code>  呈现为 $\langle, \rangle$</li>
-<li>使用 <code>\left(或\right)</code>使符号大小与邻近的公式相适应，该语句适用于所有括号类型<br>  <code>(\frac{x}{y})</code>  呈现为 $(\frac{x}{y})$<br>  而<code>\left(\frac{x}{y}\right)</code>  呈现为 $\left(\frac{x}{y}\right)$</li>
-</ul>
-<ol start="4">
-<li><h6 id="求和、极限与积分"><a href="#求和、极限与积分" class="headerlink" title="求和、极限与积分"></a>求和、极限与积分</h6></li>
-</ol>
-<ul>
-<li>求和：<code>\sum</code><br>  例如：<code>\sum_{i=1}^n{a_i}</code>  呈现为$\sum_{i=1}^n{a_i}$</li>
-<li>极限：<code>\lim</code><br>  例如：<code>\lim_{x\to 0}</code>  呈现为 $\lim_{x\to 0}$</li>
-<li>积分：<code>\int</code><br>  例如：<code>\int_0^\infty{fxdx}</code>  呈现为$\int_0^\infty{f(x)dx}$</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>戏剧体系</title>
-    <url>/2020/05/18/%E4%B8%89%E5%A4%A7%E6%88%8F%E5%89%A7%E4%BD%93%E7%B3%BB/</url>
-    <content><![CDATA[<p>世界戏剧三大表演体系即分别以<code>斯坦尼斯拉夫斯基（Konstantin·Stanislavsky，苏联戏剧家）</code>，<code>布莱希特（Bertolt Brecht，德国戏剧家）</code>，<code>梅兰芳</code>为代表的三种表演体系。<br>这三个体系，从舞台艺术实践看，代表着三种不同的演剧方法；从戏剧理论上看，代表了三种不同的戏剧观和戏剧美学思想；从戏剧艺术风格上看，是三种不同的戏剧艺术流派；从戏剧史的角度看，它们代表了不同民族、不同时代的文化形态。</p>
-<hr>
-<h4 id="斯坦尼斯拉夫斯基"><a href="#斯坦尼斯拉夫斯基" class="headerlink" title="斯坦尼斯拉夫斯基"></a>斯坦尼斯拉夫斯基</h4><p>他创立的演剧体系继承和发展了俄罗斯和欧洲的艺术成果，著有<code>《我的艺术生活》</code>、<code>《演员自我修养》</code>等书。<br>斯坦尼斯拉夫斯基体系只是系统而科学地阐述了表演艺术的规律。斯氏体系的精华在于<code>体现出人的“天性”：要求演员不是好像存在于舞台上，而是真正存在于舞台上，不是在表演，而是在生活。演员应当永远是舞台上活生生的人，要遵守生活的逻辑和有机性的规律，在规定情景中真诚的去感觉，去想，去动作</code>。</p>
-<h4 id="布莱希特"><a href="#布莱希特" class="headerlink" title="布莱希特"></a>布莱希特</h4><p>1918年写出第一部短剧《巴尔》，<code>攻击资产阶级道德的虚伪性</code>，1920年完成剧作《夜半鼓声》。1922年写出《城市丛林》。1922年被慕尼黑小剧院聘为戏剧顾问兼导演。1924年应著名导演莱因哈特邀请赴柏林任德意志剧院戏剧顾问，创作剧本《人就是人》。<br>布莱希特建立了新型戏剧——史诗戏剧，核心主张是：<code>“陌生化效果”和“间离方法”。在演员，角色，观众三者辨证关系上主张：演员高于角色，驾驭角色，表现剧中人物而不是演员融化于角色之中，随时进入角色，随时跳出角色，面对观众，若即若离，自由驰骋。演员与角色保持距离，形成“双重形象”即演员即是演员本人，又是剧中人物，是演员利用高超演技表现剧中人物</code>。<br>布莱希特演剧方法推崇<code>“间离方法”</code>，又称<code>“陌生化方法”</code>，是他提出的一个新的美学概念，又是一种新的演剧理论和方法。它的基本含义是<code>利用艺术方法把平常的事物变得不平常，揭示事物的因果关系，暴露事物的矛盾性质，使人们认识改变现实的可能性</code>。但就表演方法而言，“间离方法”<code>要求演员与角色保持一定的距离，不要把二者融合为一，演员要高于角色，驾驭角色，表演角色</code>。</p>
-<h4 id="梅兰芳"><a href="#梅兰芳" class="headerlink" title="梅兰芳"></a>梅兰芳</h4><p><code>主张中国戏曲是间离与共鸣的统一，是程式化的体验与表现的结合，是载歌载舞，高度综合的舞台艺术。</code></p>
-<ol>
-<li><code>写意的表现方法。</code>写意的方法，实质就是虚拟的方法。写意是中国古代艺术和美学思想中的一个重要命题。它在戏曲艺术中的体现，主要是突破时间、空间限制，以动作虚拟，布景虚拟，造成一个与实际生活面目相去甚远，但却富有意境美的舞台艺术世界。</li>
-<li><code>程式化的表现方法。戏曲表演把经过体验的人物形象，通过程式化的表现方法再体现出来。它的体现不是话剧艺术那种摹仿的方式，而是一种象征性的表现方式。</code></li>
-<li><code>以演员为中心。</code>戏曲虽然是综合艺术，但要以演员为中心来综合。一方面戏曲艺术<code>“戏随人走，景随人迁”</code>，演员地位十分重要；另一方面，程式化的、写意的戏曲表演艺术，有突出的形式美，有很强的观赏性，音乐唱腔对观众十分重要，具有相对的艺术独立性。所以，戏曲艺术是以演员为中心的综合艺术。</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>elasticsearch倒排索引</title>
-    <url>/2020/05/16/elasticsearch/</url>
-    <content><![CDATA[<h4 id="倒排索引"><a href="#倒排索引" class="headerlink" title="倒排索引"></a>倒排索引</h4><p>Elasticsearch 使用一种称为 倒排索引 的结构，它适用于快速的全文搜索。一个倒排索引由文档中所有不重复词的列表构成，对于其中每个词，有一个包含它的文档列表。</p>
-<p>简单记为：<br>正排索引： 文档—&gt;单词<br>倒排索引： 单词—&gt;文档</p>
-<p>例如，假设我们有两个文档，每个文档的 content 域包含如下内容：</p>
-<ol>
-<li>The quick brown fox jumped over the lazy dog</li>
-<li>Quick brown foxes leap over lazy dogs in summer</li>
-</ol>
-<p>为了创建倒排索引，我们首先将每个文档的 <code>content 域</code>拆分成单独的 词（我们称它为 <code>词条</code> 或 <code>tokens</code> ），创建一个包含所有不重复词条的排序列表，然后列出每个词条出现在哪个文档。结果如下所示：</p>
-<table>
-<thead>
-<tr>
-<th align="center">Term</th>
-<th align="center">Doc_1</th>
-<th align="center">Doc_2</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">Quick</td>
-<td align="center"></td>
-<td align="center">X</td>
-</tr>
-<tr>
-<td align="center">The</td>
-<td align="center">X</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">brown</td>
-<td align="center">X</td>
-<td align="center">X</td>
-</tr>
-<tr>
-<td align="center">dog</td>
-<td align="center">X</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">dogs</td>
-<td align="center"></td>
-<td align="center">X</td>
-</tr>
-<tr>
-<td align="center">fox</td>
-<td align="center">X</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">foxes</td>
-<td align="center"></td>
-<td align="center">X</td>
-</tr>
-<tr>
-<td align="center">in</td>
-<td align="center"></td>
-<td align="center">X</td>
-</tr>
-<tr>
-<td align="center">jumped</td>
-<td align="center">X</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">lazy</td>
-<td align="center">X</td>
-<td align="center">X</td>
-</tr>
-<tr>
-<td align="center">leap</td>
-<td align="center"></td>
-<td align="center">X</td>
-</tr>
-<tr>
-<td align="center">over</td>
-<td align="center">X</td>
-<td align="center">X</td>
-</tr>
-<tr>
-<td align="center">quick</td>
-<td align="center">X</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">summer</td>
-<td align="center"></td>
-<td align="center">X</td>
-</tr>
-<tr>
-<td align="center">the</td>
-<td align="center">X</td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<p>现在，如果我们想搜索 <code>quick brown</code> ，我们只需要查找包含每个词条的文档：</p>
-<table>
-<thead>
-<tr>
-<th align="center">erm</th>
-<th align="center">Doc_1</th>
-<th align="center">Doc_2</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">brown</td>
-<td align="center">X</td>
-<td align="center">X</td>
-</tr>
-<tr>
-<td align="center">quick</td>
-<td align="center">X</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">Total</td>
-<td align="center">2</td>
-<td align="center">1</td>
-</tr>
-</tbody></table>
-<p>两个文档都匹配，但是第一个文档比第二个匹配度更高。如果我们使用仅计算匹配词条数量的简单 相似性算法 ，那么，我们可以说，对于我们查询的相关性来讲，第一个文档比第二个文档更佳。</p>
-<p>但是，我们目前的倒排索引有一些问题：</p>
-<p><code>涉及到词干提取和词性还原</code></p>
-<ul>
-<li><code>Quick</code> 和 <code>quick</code> 以独立的词条出现，然而用户可能认为它们是相同的词。</li>
-<li><code>fox</code> 和 <code>foxes</code> 非常相似, 就像 <code>dog</code> 和 <code>dogs</code> ；他们有相同的词根。</li>
-<li><code>jumped</code> 和 <code>leap</code>, 尽管没有相同的词根，但他们的意思很相近。他们是同义词。</li>
-</ul>
-<p>使用前面的索引搜索 <code>+Quick +fox</code> 不会得到任何匹配文档。（记住，<code>+</code> 前缀表明这个词必须存在。）只有同时出现 <code>Quick</code> 和 <code>fox</code> 的文档才满足这个查询条件，但是第一个文档包含 <code>quick fox</code> ，第二个文档包含 <code>Quick foxes</code> 。</p>
-<p>我们的用户可以合理的期望两个文档与查询匹配。我们可以做的更好。<br>如果我们将词条规范为标准模式，那么我们可以找到与用户搜索的词条不完全一致，但具有足够相关性的文档。例如：</p>
-<ul>
-<li><code>Quick</code> 可以小写化为 <code>quick</code> 。</li>
-<li><code>foxes</code> 可以 <code>词干提取</code> –变为词根的格式– 为 <code>fox</code> 。类似的， <code>dogs</code> 可以为提取为 <code>dog</code> 。</li>
-<li><code>jumped</code> 和 <code>leap</code> 是同义词，可以索引为相同的单词 <code>jump</code> 。</li>
-</ul>
-<p>现在索引看上去像这样：</p>
-<table>
-<thead>
-<tr>
-<th align="center">Term</th>
-<th align="center">Doc_1</th>
-<th align="center">Doc_2</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">brown</td>
-<td align="center">X</td>
-<td align="center">X</td>
-</tr>
-<tr>
-<td align="center">dog</td>
-<td align="center">X</td>
-<td align="center">X</td>
-</tr>
-<tr>
-<td align="center">fox</td>
-<td align="center">X</td>
-<td align="center">X</td>
-</tr>
-<tr>
-<td align="center">in</td>
-<td align="center"></td>
-<td align="center">X</td>
-</tr>
-<tr>
-<td align="center">jump</td>
-<td align="center">X</td>
-<td align="center">X</td>
-</tr>
-<tr>
-<td align="center">lazy</td>
-<td align="center">X</td>
-<td align="center">X</td>
-</tr>
-<tr>
-<td align="center">over</td>
-<td align="center">X</td>
-<td align="center">X</td>
-</tr>
-<tr>
-<td align="center">quick</td>
-<td align="center">X</td>
-<td align="center">X</td>
-</tr>
-<tr>
-<td align="center">summer</td>
-<td align="center"></td>
-<td align="center">X</td>
-</tr>
-<tr>
-<td align="center">the</td>
-<td align="center">X</td>
-<td align="center">X</td>
-</tr>
-</tbody></table>
-<p>这还远远不够。我们搜索 <code>+Quick +fox</code> 仍然 会失败，因为在我们的索引中，已经没有 <code>Quick</code> 了。但是，如果我们对搜索的字符串使用与 <code>content</code> 域相同的标准化规则，会变成查询 <code>+quick +fox</code> ，这样两个文档都会匹配！</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Dockerfile</title>
-    <url>/2019/10/24/Dockerfile/</url>
-    <content><![CDATA[<p><code>Dockerfile</code>是一个包含用于组合映像的命令的文本文档。可以使用在命令行中调用任何命令。<br>Docker通过读取Dockerfile中的指令自动生成映像。</p>
-<p><code>docker build</code>命令用于从Dockerfile构建映像。<br>可以在<code>docker build</code>命令中使用<code>-f</code>标志指向文件系统中任何位置的Dockerfile。</p>
-<hr>
-<p>Docker以从上到下的顺序运行Dockerfile的指令。<br>为了指定基本映像，第一条指令必须是FROM。<br>一个声明以＃字符开头则被视为注释。可以在Docker文件中使用<code>RUN</code>，<code>CMD</code>，<code>FROM</code>，<code>EXPOSE</code>，<code>ENV</code>等指令。</p>
-<p>一些基本命令的说明：</p>
-<h4 id="FROM"><a href="#FROM" class="headerlink" title="FROM"></a>FROM</h4><p>该指令用于设置后续指令的基本映像。有效的Dockerfile必须使用<code>FROM</code>作为其第一条指令。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FROM ubuntu</span><br></pre></td></tr></table></figure>
-
-<h4 id="MAINTAINER"><a href="#MAINTAINER" class="headerlink" title="MAINTAINER"></a>MAINTAINER</h4><p>指定作者<br>语法：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">MAINTAINER &lt;name&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="EXPOSE"><a href="#EXPOSE" class="headerlink" title="EXPOSE"></a>EXPOSE</h4><p>功能为暴漏容器运行时的监听端口给外部<br>但是EXPOSE并不会使容器访问主机的端口<br>如果想使得容器与主机的端口有映射关系，必须在容器启动的时候加上 -P参数</p>
-<h4 id="ENV"><a href="#ENV" class="headerlink" title="ENV"></a>ENV</h4><p>功能为设置环境变量<br>语法有两种：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. ENV &lt;key&gt;&lt;value&gt;</span><br><span class="line">2. ENV &lt;key&gt;=&lt;value&gt; ...</span><br></pre></td></tr></table></figure>
-
-<p>两者的区别就是第一种是一次设置一个，第二种是一次设置多个</p>
-<h4 id="LABEL"><a href="#LABEL" class="headerlink" title="LABEL"></a>LABEL</h4><p>用来标明dockerfile的标签 可以使用Label代替Maintainer 最终都是在docker image基本信息中可以查看</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LABEL &lt;key&gt;=&lt;value&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="RUN"><a href="#RUN" class="headerlink" title="RUN"></a>RUN</h4><p>功能为运行指定的命令,RUN命令有两种格式</p>
-<figure class="highlight plain"><figcaption><span><command></span></figcaption><table><tr><td class="code"><pre><span class="line">RUN [&quot;executable&quot;, &quot;param1&quot;, &quot;param2&quot;]</span><br></pre></td></tr></table></figure>
-
-<p>第一种后边直接跟shell命令<br>在linux操作系统上默认 /bin/sh -c<br>在windows操作系统上默认 cmd /S /C</p>
-<p>两种写法比对：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. RUN /bin/bash -c &apos;source $HOME/.bashrc; echo $HOME</span><br><span class="line">2. RUN [&quot;/bin/bash&quot;, &quot;-c&quot;, &quot;echo hello&quot;]</span><br></pre></td></tr></table></figure>
-
-<p>注意：多行命令不要写多个RUN，原因是Dockerfile中每一个指令都会建立一层.多少个RUN就构建了多少层镜像，会造成镜像的臃肿、多层，不仅仅增加了构件部署的时间，还容易出错。RUN书写时的换行符是\</p>
-<h4 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h4><p>容器启动时要运行的命令，有三种写法：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. CMD [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;]</span><br><span class="line">2. CMD [&quot;param1&quot;,&quot;param2&quot;]</span><br><span class="line">3. CMD command param1 param2</span><br></pre></td></tr></table></figure>
-
-<p>第三种比较好理解了，就是shell这种执行方式和写法<br>第一种和第二种其实都是可执行文件加上参数的形式</p>
-<p>举例说明两种写法：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. CMD [ &quot;sh&quot;, &quot;-c&quot;, &quot;echo $HOME&quot;</span><br><span class="line">2. CMD [ &quot;echo&quot;, &quot;$HOME&quot; ]</span><br></pre></td></tr></table></figure>
-
-<p>补充：这里边包括参数的一定要用双引号，就是”,不能是单引号。千万不能写成单引号。<br>原因是参数传递后，docker解析的是一个JSON array</p>
-<h4 id="RUN-amp-CMD-的区别"><a href="#RUN-amp-CMD-的区别" class="headerlink" title="RUN &amp; CMD 的区别"></a>RUN &amp; CMD 的区别</h4><p>RUN是构件容器时就运行的命令以及提交运行结果<br>CMD是容器启动时执行的命令，在构件时并不运行，构件时紧紧指定了这个命令到底是个什么样子</p>
-<h4 id="ADD"><a href="#ADD" class="headerlink" title="ADD"></a>ADD</h4><p>把文件复制到镜像中<br>如果把虚拟机与容器想象成两台linux服务器的话，那么这个命令就类似于scp，只是scp需要加用户名和密码的权限验证，而ADD不用。<br>语法如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. ADD &lt;src&gt;... &lt;dest&gt;</span><br><span class="line">2. ADD [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]</span><br></pre></td></tr></table></figure>
-
-<p>dest 路径的填写可以是容器内的绝对路径，也可以是相对于工作目录的相对路径<br>src可以是一个本地文件或者是一个本地压缩文件，还可以是一个url<br>如果把src写成一个url，那么ADD就类似于wget命令<br>如以下写法都是可以的： </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ADD test relativeDir/ </span><br><span class="line">ADD test /relativeDir</span><br><span class="line">ADD http://example.com/foobar /</span><br></pre></td></tr></table></figure>
-
-<p>尽量不要把scr写成一个文件夹，如果src是一个文件夹了，复制整个目录的内容,包括文件系统元数据</p>
-<h4 id="COPY"><a href="#COPY" class="headerlink" title="COPY"></a>COPY</h4><p>复制命令<br>语法如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">COPY &lt;src&gt;... &lt;dest&gt;</span><br><span class="line">COPY [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]</span><br></pre></td></tr></table></figure>
-
-<p>与ADD的区别:<br>COPY的src只能是本地文件，其他用法一致</p>
-]]></content>
-  </entry>
+<search> 
+  
+  
+    
+    <entry>
+      <title>NLP词干提取和词性还原</title>
+      <link href="/2020/06/02/NLP%E8%AF%8D%E5%B9%B2%E6%8F%90%E5%8F%96%E5%92%8C%E8%AF%8D%E6%80%A7%E8%BF%98%E5%8E%9F/"/>
+      <url>/2020/06/02/NLP%E8%AF%8D%E5%B9%B2%E6%8F%90%E5%8F%96%E5%92%8C%E8%AF%8D%E6%80%A7%E8%BF%98%E5%8E%9F/</url>
+      
+        <content type="html"><![CDATA[<p><code>词形还原（lemmatization）</code>，是把一个任何形式的语言词汇还原为一般形式（能表达完整语义），而<code>词干提取（stemming）</code>是抽取词的词干或词根形式（不一定能够表达完整语义）。词形还原和词干提取是词形规范化的两类重要方式，都能够达到有效归并词形的目的，二者既有联系也有区别。</p><p>二者区别：</p><ol><li>在原理上，词干提取主要是采用“缩减”的方法，<code>将词转换为词干</code>，如将“cats”处理为“cat”，将“effective”处理为“effect”。而词形还原主要采用“转变”的方法，<code>将词转变为其原形</code>，如将“drove”处理为“drive”，将“driving”处理为“drive”。</li><li>在复杂性上，词干提取方法相对简单，词形还原则需要返回词的原形，需要对词形进行分析，不仅要进行词缀的转化，还要进行词性识别，区分相同词形但<br>原形不同的词的差别。词性标注的准确率也直接影响词形还原的准确率，因此，词形还原更为复杂。</li><li>在实现方法上，虽然词干提取和词形还原实现的主流方法类似，但二者在具体实现上各有侧重。词干提取的实现方法主要利用规则变化进行词缀的去除和缩减，从而达到词的简化效果。词形还原则相对较复杂，有复杂的形态变化，单纯依据规则无法很好地完成。其更依赖于词典，进行词形变化和原形的映射，生成词典中的有效词。</li><li>在结果上，词干提取和词形还原也有部分区别。词干提取的结果可能并不是完整的、具有意义的词，而只是词的一部分，如“revival”词干提取的结果为“reviv”，“ailiner”词干提取的结果为“airlin”。而经词形还原处理后获得的结果是具有一定意义的、完整的词，一般为词典中的有效词。</li><li>在应用领域上，同样各有侧重。虽然二者均被应用于信息检索和文本处理中，但侧重不同。词干提取更多被应用于信息检索领域，如Solr、Lucene等，用于扩展检索，粒度较粗。词形还原更主要被应用于文本挖掘、自然语言处理，用于更细粒度、更为准确的文本分析和表达</li></ol><hr><p>词干提取算法</p><ol><li><p>Porter算法</p><p> <a href="https://tartarus.org/martin/PorterStemmer/" target="_blank" rel="noopener">https://tartarus.org/martin/PorterStemmer/</a></p></li><li><p>Snowball算法</p><p> <a href="http://snowball.tartarus.org/algorithms/english/stemmer.html" target="_blank" rel="noopener">http://snowball.tartarus.org/algorithms/english/stemmer.html</a></p><p> elasticsearch内可选择使用此算法进行词干提取</p><p> 这种算法也称为 Porter2 词干算法。它几乎被普遍认为比 Porter 更好，甚至发明 Porter 的开发者也这么认为。Snowball 在 Porter 的基础上加了很多优化。</p></li></ol>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>面试题记录</title>
+      <link href="/2020/05/24/%E9%9D%A2%E8%AF%95%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
+      <url>/2020/05/24/%E9%9D%A2%E8%AF%95%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Python闭包"><a href="#Python闭包" class="headerlink" title="Python闭包"></a>Python闭包</h4><p>闭包的必要条件：</p><ul><li>闭包函数必须返回一个函数对象</li><li>闭包函数返回的那个函数必须引用外部变量（一般不能是全局变量），而返回的那个函数内部不一定要return<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">当一个嵌套函数在其外部区域引用了一个值时，该嵌套函数就是一个闭包，以下代码输出值为：</span><br><span class="line"></span><br><span class="line">def adder(x):</span><br><span class="line">    def wrapper(y):</span><br><span class="line">        return x + y</span><br><span class="line">    # 返回的是一个函数对象</span><br><span class="line">    return wrapper</span><br><span class="line">adder5 = adder(5)  #返回函数对象，故下一次调用adder5实则为调用wrapper这个内部函数，x仍为5</span><br><span class="line">print(adder5(adder5(6)))</span><br><span class="line"></span><br><span class="line">- - -</span><br><span class="line"># __closure__属性返回的是一个元组对象，包含了闭包引用的外部变量</span><br><span class="line"># 若主函数内的闭包不引用外部变量，就不存在闭包，主函数的__closure__属性永远为None</span><br><span class="line"># 若主函数没有return子函数，就不存在闭包，主函数不存在__closure__属性</span><br><span class="line"># 闭包作为对象被返回时，它的引用变量就已经确定（已经保存在它的__closure__属性中），不会再被修改</span><br><span class="line">print(adder(5).__closure__)</span><br><span class="line">for i in adder(5).__closure__:#打印引用的外部变量</span><br><span class="line">    print(i.cell_contents)</span><br></pre></td></tr></table></figure></li></ul><hr><h4 id="if-name-‘main‘"><a href="#if-name-‘main‘" class="headerlink" title="if name == ‘main‘:"></a>if <strong>name</strong> == ‘<strong>main</strong>‘:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    print (&apos;This program is being run by itself&apos;)</span><br><span class="line">else:</span><br><span class="line">    print (&apos;I am being imported from another module&apos;)</span><br></pre></td></tr></table></figure><p>两种运行方式的结果</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ python test.py</span><br><span class="line">This program is being run by ifself</span><br><span class="line">$ python</span><br><span class="line">&gt;&gt;&gt; import test</span><br><span class="line">I am being imported from another module</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure><p>第一种是作为一个脚本运行，第二种是作为一个库运行，通过这个结果我们知道，当程序单独作为脚本运行时其name属性是”<strong>main</strong>“，而作为库时name属性是库的名字。</p><p>所以说<strong>name</strong> == “<strong>main</strong>“将程序定义功能和执行功能分开，理想情况下，从命令行调用时，几乎每个Python模块都可以执行相应操作。在许多情况下，如果特定文件定义仅在系统的其他组件中使用或者作为测试执行脚本时，则可以使用<strong>name</strong> == “<strong>main</strong>“隔离代码块来区别脚本的不同功能属性。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Markdown中的数学公式</title>
+      <link href="/2020/05/20/Markdown%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/"/>
+      <url>/2020/05/20/Markdown%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<h4 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h4><ul><li>正文(inline)中的LaTeX公式用<code>$...$</code>定义</li><li>语句为<code>$\sum_{i=0}^N\int_{a}^{b}g(t,i){d}t$</code></li><li>显示在当前行内<br>  $\sum_{i=0}^N\int_{a}^{b}g(t,i){d}t$</li><li>单独显示(display)的LaTeX公式用<code>$$...$$</code>定义，此时公式居中并放大显示</li><li>显示为<br>  $$\sum_{i=0}N\int_{a}{b}g(t,i)\text{d}t$$</li></ul><hr><h4 id="希腊字母"><a href="#希腊字母" class="headerlink" title="希腊字母"></a>希腊字母</h4><table><thead><tr><th align="center">显示</th><th align="center">命令</th><th align="center">显示</th><th align="center">命令</th></tr></thead><tbody><tr><td align="center">$\alpha$</td><td align="center">\alpha</td><td align="center">$\beta$</td><td align="center">\beta</td></tr><tr><td align="center">$\gamma$</td><td align="center">\gamma</td><td align="center">$\delta$</td><td align="center">\delta</td></tr><tr><td align="center">$\epsilon$</td><td align="center">\epsilon</td><td align="center">$\zeta$</td><td align="center">\zeta</td></tr><tr><td align="center">$\eta$</td><td align="center">\eta</td><td align="center">$\theta$</td><td align="center">\theta</td></tr><tr><td align="center">$\iota$</td><td align="center">\iota</td><td align="center">$\kappa$</td><td align="center">\kappa</td></tr><tr><td align="center">$\lambda$</td><td align="center">\lambda</td><td align="center">$\mu$</td><td align="center">\mu</td></tr><tr><td align="center">$\nu$</td><td align="center">\nu</td><td align="center">$\xi$</td><td align="center">\xi</td></tr><tr><td align="center">$\pi$</td><td align="center">\pi</td><td align="center">$\rho$</td><td align="center">\rho</td></tr><tr><td align="center">$\sigma$</td><td align="center">\sigma</td><td align="center">$\tau$</td><td align="center">\tau</td></tr><tr><td align="center">$\upsilon$</td><td align="center">\upsilon</td><td align="center">$\phi$</td><td align="center">\phi</td></tr><tr><td align="center">$\chi$</td><td align="center">\chi</td><td align="center">$\psi$</td><td align="center">\psi</td></tr><tr><td align="center">$\omega$</td><td align="center">\omega</td><td align="center"></td><td align="center"></td></tr></tbody></table><ul><li>若需要大写希腊字母，将命令首字母大写即可。<br><code>$$\Gamma$$</code>呈现为<br>  $$\Gamma$$</li><li>若需要斜体希腊字母，将命令前加上var前缀即可。<br><code>$$\varGamma$$</code>呈现为<br>  $$\varGamma$$</li></ul><hr><h4 id="字母修饰"><a href="#字母修饰" class="headerlink" title="字母修饰"></a>字母修饰</h4><ol><li><h6 id="上下标"><a href="#上下标" class="headerlink" title="上下标"></a>上下标</h6></li></ol><ul><li>上标：<code>^</code></li><li>下标：<code>_</code><br>例如：<code>$$C^2_n$$</code><br>$$C^2_n$$</li></ul><ol start="2"><li><h6 id="矢量"><a href="#矢量" class="headerlink" title="矢量"></a>矢量</h6>例如：<code>$$\vec a$$</code><br>$$\vec a$$<br><code>$$\overrightarrow{xy}$$</code><br>$$\overrightarrow{xy}$$<br><code>$$\overleftarrow {xy}$$</code><br>$$\overleftarrow {xy}$$</li><li><h6 id="括号"><a href="#括号" class="headerlink" title="括号"></a>括号</h6></li></ol><ul><li>小括号：<code>()</code>呈现为 $()$</li><li>中括号：<code>[]</code>呈现为 $[]$</li><li>尖括号：<code>\langle, \rangle</code>  呈现为 $\langle, \rangle$</li><li>使用 <code>\left(或\right)</code>使符号大小与邻近的公式相适应，该语句适用于所有括号类型<br>  <code>(\frac{x}{y})</code>  呈现为 $(\frac{x}{y})$<br>  而<code>\left(\frac{x}{y}\right)</code>  呈现为 $\left(\frac{x}{y}\right)$</li></ul><ol start="4"><li><h6 id="求和、极限与积分"><a href="#求和、极限与积分" class="headerlink" title="求和、极限与积分"></a>求和、极限与积分</h6></li></ol><ul><li>求和：<code>\sum</code><br>  例如：<code>\sum_{i=1}^n{a_i}</code>  呈现为$\sum_{i=1}^n{a_i}$</li><li>极限：<code>\lim</code><br>  例如：<code>\lim_{x\to 0}</code>  呈现为 $\lim_{x\to 0}$</li><li>积分：<code>\int</code><br>  例如：<code>\int_0^\infty{fxdx}</code>  呈现为$\int_0^\infty{f(x)dx}$</li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>戏剧体系</title>
+      <link href="/2020/05/18/%E4%B8%89%E5%A4%A7%E6%88%8F%E5%89%A7%E4%BD%93%E7%B3%BB/"/>
+      <url>/2020/05/18/%E4%B8%89%E5%A4%A7%E6%88%8F%E5%89%A7%E4%BD%93%E7%B3%BB/</url>
+      
+        <content type="html"><![CDATA[<p>世界戏剧三大表演体系即分别以<code>斯坦尼斯拉夫斯基（Konstantin·Stanislavsky，苏联戏剧家）</code>，<code>布莱希特（Bertolt Brecht，德国戏剧家）</code>，<code>梅兰芳</code>为代表的三种表演体系。<br>这三个体系，从舞台艺术实践看，代表着三种不同的演剧方法；从戏剧理论上看，代表了三种不同的戏剧观和戏剧美学思想；从戏剧艺术风格上看，是三种不同的戏剧艺术流派；从戏剧史的角度看，它们代表了不同民族、不同时代的文化形态。</p><hr><h4 id="斯坦尼斯拉夫斯基"><a href="#斯坦尼斯拉夫斯基" class="headerlink" title="斯坦尼斯拉夫斯基"></a>斯坦尼斯拉夫斯基</h4><p>他创立的演剧体系继承和发展了俄罗斯和欧洲的艺术成果，著有<code>《我的艺术生活》</code>、<code>《演员自我修养》</code>等书。<br>斯坦尼斯拉夫斯基体系只是系统而科学地阐述了表演艺术的规律。斯氏体系的精华在于<code>体现出人的“天性”：要求演员不是好像存在于舞台上，而是真正存在于舞台上，不是在表演，而是在生活。演员应当永远是舞台上活生生的人，要遵守生活的逻辑和有机性的规律，在规定情景中真诚的去感觉，去想，去动作</code>。</p><h4 id="布莱希特"><a href="#布莱希特" class="headerlink" title="布莱希特"></a>布莱希特</h4><p>1918年写出第一部短剧《巴尔》，<code>攻击资产阶级道德的虚伪性</code>，1920年完成剧作《夜半鼓声》。1922年写出《城市丛林》。1922年被慕尼黑小剧院聘为戏剧顾问兼导演。1924年应著名导演莱因哈特邀请赴柏林任德意志剧院戏剧顾问，创作剧本《人就是人》。<br>布莱希特建立了新型戏剧——史诗戏剧，核心主张是：<code>“陌生化效果”和“间离方法”。在演员，角色，观众三者辨证关系上主张：演员高于角色，驾驭角色，表现剧中人物而不是演员融化于角色之中，随时进入角色，随时跳出角色，面对观众，若即若离，自由驰骋。演员与角色保持距离，形成“双重形象”即演员即是演员本人，又是剧中人物，是演员利用高超演技表现剧中人物</code>。<br>布莱希特演剧方法推崇<code>“间离方法”</code>，又称<code>“陌生化方法”</code>，是他提出的一个新的美学概念，又是一种新的演剧理论和方法。它的基本含义是<code>利用艺术方法把平常的事物变得不平常，揭示事物的因果关系，暴露事物的矛盾性质，使人们认识改变现实的可能性</code>。但就表演方法而言，“间离方法”<code>要求演员与角色保持一定的距离，不要把二者融合为一，演员要高于角色，驾驭角色，表演角色</code>。</p><h4 id="梅兰芳"><a href="#梅兰芳" class="headerlink" title="梅兰芳"></a>梅兰芳</h4><p><code>主张中国戏曲是间离与共鸣的统一，是程式化的体验与表现的结合，是载歌载舞，高度综合的舞台艺术。</code></p><ol><li><code>写意的表现方法。</code>写意的方法，实质就是虚拟的方法。写意是中国古代艺术和美学思想中的一个重要命题。它在戏曲艺术中的体现，主要是突破时间、空间限制，以动作虚拟，布景虚拟，造成一个与实际生活面目相去甚远，但却富有意境美的舞台艺术世界。</li><li><code>程式化的表现方法。戏曲表演把经过体验的人物形象，通过程式化的表现方法再体现出来。它的体现不是话剧艺术那种摹仿的方式，而是一种象征性的表现方式。</code></li><li><code>以演员为中心。</code>戏曲虽然是综合艺术，但要以演员为中心来综合。一方面戏曲艺术<code>“戏随人走，景随人迁”</code>，演员地位十分重要；另一方面，程式化的、写意的戏曲表演艺术，有突出的形式美，有很强的观赏性，音乐唱腔对观众十分重要，具有相对的艺术独立性。所以，戏曲艺术是以演员为中心的综合艺术。</li></ol>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>elasticsearch倒排索引</title>
+      <link href="/2020/05/16/elasticsearch/"/>
+      <url>/2020/05/16/elasticsearch/</url>
+      
+        <content type="html"><![CDATA[<h4 id="倒排索引"><a href="#倒排索引" class="headerlink" title="倒排索引"></a>倒排索引</h4><p>Elasticsearch 使用一种称为 倒排索引 的结构，它适用于快速的全文搜索。一个倒排索引由文档中所有不重复词的列表构成，对于其中每个词，有一个包含它的文档列表。</p><p>简单记为：<br>正排索引： 文档—&gt;单词<br>倒排索引： 单词—&gt;文档</p><p>例如，假设我们有两个文档，每个文档的 content 域包含如下内容：</p><ol><li>The quick brown fox jumped over the lazy dog</li><li>Quick brown foxes leap over lazy dogs in summer</li></ol><p>为了创建倒排索引，我们首先将每个文档的 <code>content 域</code>拆分成单独的 词（我们称它为 <code>词条</code> 或 <code>tokens</code> ），创建一个包含所有不重复词条的排序列表，然后列出每个词条出现在哪个文档。结果如下所示：</p><table><thead><tr><th align="center">Term</th><th align="center">Doc_1</th><th align="center">Doc_2</th></tr></thead><tbody><tr><td align="center">Quick</td><td align="center"></td><td align="center">X</td></tr><tr><td align="center">The</td><td align="center">X</td><td align="center"></td></tr><tr><td align="center">brown</td><td align="center">X</td><td align="center">X</td></tr><tr><td align="center">dog</td><td align="center">X</td><td align="center"></td></tr><tr><td align="center">dogs</td><td align="center"></td><td align="center">X</td></tr><tr><td align="center">fox</td><td align="center">X</td><td align="center"></td></tr><tr><td align="center">foxes</td><td align="center"></td><td align="center">X</td></tr><tr><td align="center">in</td><td align="center"></td><td align="center">X</td></tr><tr><td align="center">jumped</td><td align="center">X</td><td align="center"></td></tr><tr><td align="center">lazy</td><td align="center">X</td><td align="center">X</td></tr><tr><td align="center">leap</td><td align="center"></td><td align="center">X</td></tr><tr><td align="center">over</td><td align="center">X</td><td align="center">X</td></tr><tr><td align="center">quick</td><td align="center">X</td><td align="center"></td></tr><tr><td align="center">summer</td><td align="center"></td><td align="center">X</td></tr><tr><td align="center">the</td><td align="center">X</td><td align="center"></td></tr></tbody></table><p>现在，如果我们想搜索 <code>quick brown</code> ，我们只需要查找包含每个词条的文档：</p><table><thead><tr><th align="center">erm</th><th align="center">Doc_1</th><th align="center">Doc_2</th></tr></thead><tbody><tr><td align="center">brown</td><td align="center">X</td><td align="center">X</td></tr><tr><td align="center">quick</td><td align="center">X</td><td align="center"></td></tr><tr><td align="center">Total</td><td align="center">2</td><td align="center">1</td></tr></tbody></table><p>两个文档都匹配，但是第一个文档比第二个匹配度更高。如果我们使用仅计算匹配词条数量的简单 相似性算法 ，那么，我们可以说，对于我们查询的相关性来讲，第一个文档比第二个文档更佳。</p><p>但是，我们目前的倒排索引有一些问题：</p><p><code>涉及到词干提取和词性还原</code></p><ul><li><code>Quick</code> 和 <code>quick</code> 以独立的词条出现，然而用户可能认为它们是相同的词。</li><li><code>fox</code> 和 <code>foxes</code> 非常相似, 就像 <code>dog</code> 和 <code>dogs</code> ；他们有相同的词根。</li><li><code>jumped</code> 和 <code>leap</code>, 尽管没有相同的词根，但他们的意思很相近。他们是同义词。</li></ul><p>使用前面的索引搜索 <code>+Quick +fox</code> 不会得到任何匹配文档。（记住，<code>+</code> 前缀表明这个词必须存在。）只有同时出现 <code>Quick</code> 和 <code>fox</code> 的文档才满足这个查询条件，但是第一个文档包含 <code>quick fox</code> ，第二个文档包含 <code>Quick foxes</code> 。</p><p>我们的用户可以合理的期望两个文档与查询匹配。我们可以做的更好。<br>如果我们将词条规范为标准模式，那么我们可以找到与用户搜索的词条不完全一致，但具有足够相关性的文档。例如：</p><ul><li><code>Quick</code> 可以小写化为 <code>quick</code> 。</li><li><code>foxes</code> 可以 <code>词干提取</code> –变为词根的格式– 为 <code>fox</code> 。类似的， <code>dogs</code> 可以为提取为 <code>dog</code> 。</li><li><code>jumped</code> 和 <code>leap</code> 是同义词，可以索引为相同的单词 <code>jump</code> 。</li></ul><p>现在索引看上去像这样：</p><table><thead><tr><th align="center">Term</th><th align="center">Doc_1</th><th align="center">Doc_2</th></tr></thead><tbody><tr><td align="center">brown</td><td align="center">X</td><td align="center">X</td></tr><tr><td align="center">dog</td><td align="center">X</td><td align="center">X</td></tr><tr><td align="center">fox</td><td align="center">X</td><td align="center">X</td></tr><tr><td align="center">in</td><td align="center"></td><td align="center">X</td></tr><tr><td align="center">jump</td><td align="center">X</td><td align="center">X</td></tr><tr><td align="center">lazy</td><td align="center">X</td><td align="center">X</td></tr><tr><td align="center">over</td><td align="center">X</td><td align="center">X</td></tr><tr><td align="center">quick</td><td align="center">X</td><td align="center">X</td></tr><tr><td align="center">summer</td><td align="center"></td><td align="center">X</td></tr><tr><td align="center">the</td><td align="center">X</td><td align="center">X</td></tr></tbody></table><p>这还远远不够。我们搜索 <code>+Quick +fox</code> 仍然 会失败，因为在我们的索引中，已经没有 <code>Quick</code> 了。但是，如果我们对搜索的字符串使用与 <code>content</code> 域相同的标准化规则，会变成查询 <code>+quick +fox</code> ，这样两个文档都会匹配！</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Dockerfile</title>
+      <link href="/2019/10/24/Dockerfile/"/>
+      <url>/2019/10/24/Dockerfile/</url>
+      
+        <content type="html"><![CDATA[<p><code>Dockerfile</code>是一个包含用于组合映像的命令的文本文档。可以使用在命令行中调用任何命令。<br>Docker通过读取Dockerfile中的指令自动生成映像。</p><p><code>docker build</code>命令用于从Dockerfile构建映像。<br>可以在<code>docker build</code>命令中使用<code>-f</code>标志指向文件系统中任何位置的Dockerfile。</p><hr><p>Docker以从上到下的顺序运行Dockerfile的指令。<br>为了指定基本映像，第一条指令必须是FROM。<br>一个声明以＃字符开头则被视为注释。可以在Docker文件中使用<code>RUN</code>，<code>CMD</code>，<code>FROM</code>，<code>EXPOSE</code>，<code>ENV</code>等指令。</p><p>一些基本命令的说明：</p><h4 id="FROM"><a href="#FROM" class="headerlink" title="FROM"></a>FROM</h4><p>该指令用于设置后续指令的基本映像。有效的Dockerfile必须使用<code>FROM</code>作为其第一条指令。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FROM ubuntu</span><br></pre></td></tr></table></figure><h4 id="MAINTAINER"><a href="#MAINTAINER" class="headerlink" title="MAINTAINER"></a>MAINTAINER</h4><p>指定作者<br>语法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MAINTAINER &lt;name&gt;</span><br></pre></td></tr></table></figure><h4 id="EXPOSE"><a href="#EXPOSE" class="headerlink" title="EXPOSE"></a>EXPOSE</h4><p>功能为暴漏容器运行时的监听端口给外部<br>但是EXPOSE并不会使容器访问主机的端口<br>如果想使得容器与主机的端口有映射关系，必须在容器启动的时候加上 -P参数</p><h4 id="ENV"><a href="#ENV" class="headerlink" title="ENV"></a>ENV</h4><p>功能为设置环境变量<br>语法有两种：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. ENV &lt;key&gt;&lt;value&gt;</span><br><span class="line">2. ENV &lt;key&gt;=&lt;value&gt; ...</span><br></pre></td></tr></table></figure><p>两者的区别就是第一种是一次设置一个，第二种是一次设置多个</p><h4 id="LABEL"><a href="#LABEL" class="headerlink" title="LABEL"></a>LABEL</h4><p>用来标明dockerfile的标签 可以使用Label代替Maintainer 最终都是在docker image基本信息中可以查看</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LABEL &lt;key&gt;=&lt;value&gt;</span><br></pre></td></tr></table></figure><h4 id="RUN"><a href="#RUN" class="headerlink" title="RUN"></a>RUN</h4><p>功能为运行指定的命令,RUN命令有两种格式</p><figure class="highlight plain"><figcaption><span><command></span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RUN [&quot;executable&quot;, &quot;param1&quot;, &quot;param2&quot;]</span><br></pre></td></tr></table></figure><p>第一种后边直接跟shell命令<br>在linux操作系统上默认 /bin/sh -c<br>在windows操作系统上默认 cmd /S /C</p><p>两种写法比对：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. RUN /bin/bash -c &apos;source $HOME/.bashrc; echo $HOME</span><br><span class="line">2. RUN [&quot;/bin/bash&quot;, &quot;-c&quot;, &quot;echo hello&quot;]</span><br></pre></td></tr></table></figure><p>注意：多行命令不要写多个RUN，原因是Dockerfile中每一个指令都会建立一层.多少个RUN就构建了多少层镜像，会造成镜像的臃肿、多层，不仅仅增加了构件部署的时间，还容易出错。RUN书写时的换行符是\</p><h4 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h4><p>容器启动时要运行的命令，有三种写法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. CMD [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;]</span><br><span class="line">2. CMD [&quot;param1&quot;,&quot;param2&quot;]</span><br><span class="line">3. CMD command param1 param2</span><br></pre></td></tr></table></figure><p>第三种比较好理解了，就是shell这种执行方式和写法<br>第一种和第二种其实都是可执行文件加上参数的形式</p><p>举例说明两种写法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. CMD [ &quot;sh&quot;, &quot;-c&quot;, &quot;echo $HOME&quot;</span><br><span class="line">2. CMD [ &quot;echo&quot;, &quot;$HOME&quot; ]</span><br></pre></td></tr></table></figure><p>补充：这里边包括参数的一定要用双引号，就是”,不能是单引号。千万不能写成单引号。<br>原因是参数传递后，docker解析的是一个JSON array</p><h4 id="RUN-amp-CMD-的区别"><a href="#RUN-amp-CMD-的区别" class="headerlink" title="RUN &amp; CMD 的区别"></a>RUN &amp; CMD 的区别</h4><p>RUN是构件容器时就运行的命令以及提交运行结果<br>CMD是容器启动时执行的命令，在构件时并不运行，构件时紧紧指定了这个命令到底是个什么样子</p><h4 id="ADD"><a href="#ADD" class="headerlink" title="ADD"></a>ADD</h4><p>把文件复制到镜像中<br>如果把虚拟机与容器想象成两台linux服务器的话，那么这个命令就类似于scp，只是scp需要加用户名和密码的权限验证，而ADD不用。<br>语法如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. ADD &lt;src&gt;... &lt;dest&gt;</span><br><span class="line">2. ADD [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]</span><br></pre></td></tr></table></figure><p>dest 路径的填写可以是容器内的绝对路径，也可以是相对于工作目录的相对路径<br>src可以是一个本地文件或者是一个本地压缩文件，还可以是一个url<br>如果把src写成一个url，那么ADD就类似于wget命令<br>如以下写法都是可以的： </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ADD test relativeDir/ </span><br><span class="line">ADD test /relativeDir</span><br><span class="line">ADD http://example.com/foobar /</span><br></pre></td></tr></table></figure><p>尽量不要把scr写成一个文件夹，如果src是一个文件夹了，复制整个目录的内容,包括文件系统元数据</p><h4 id="COPY"><a href="#COPY" class="headerlink" title="COPY"></a>COPY</h4><p>复制命令<br>语法如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">COPY &lt;src&gt;... &lt;dest&gt;</span><br><span class="line">COPY [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]</span><br></pre></td></tr></table></figure><p>与ADD的区别:<br>COPY的src只能是本地文件，其他用法一致</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
 </search>
